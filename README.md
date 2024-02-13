@@ -29,7 +29,7 @@ Create an objet extending ORM, parametrised with your class fields interface
 Example:
 
 ```javascript
-const ODM = require('nedb-odm');
+const { ODM } = require('nedb-odm');
 class User extends ODM {
     constructor(user){
         super(user)
