@@ -1,6 +1,6 @@
 # typescript-nedb-orm
 
-ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
+Object Document Model for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 
 [![E2E Tests](https://github.com/levg34/typescript-nedb-orm/actions/workflows/e2e-tests.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/e2e-tests.yml)
 [![Node.js CI](https://github.com/levg34/typescript-nedb-orm/actions/workflows/node.js.yml/badge.svg)](https://github.com/levg34/typescript-nedb-orm/actions/workflows/node.js.yml)
@@ -11,19 +11,19 @@ ORM for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 ## How to install
 
 ```bash
-npm install typescript-nedb-orm
+npm install typescript-nedb-odm
 ```
 
 or
 
 ```bash
-yarn add typescript-nedb-orm
+yarn add typescript-nedb-odm
 ```
 
 or
 
 ```bash
-pnpm add typescript-nedb-orm
+pnpm add typescript-nedb-odm
 ```
 
 ## How to use
