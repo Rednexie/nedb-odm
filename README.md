@@ -45,7 +45,7 @@ Create an instance of the class to get an object:
 
 ```javascript
 const rednexie = new ODM({
-    name: "Rednexie",
+    name: "Luc",
     username: "rednexie",
     password: "******" 
 });
@@ -72,7 +72,7 @@ await rednexie.delete()
 Update your objects in database:
 
 ```javascript
-await rednexie.delete()
+await User.update({ name: "Luc" }, { name: "Rednexie" });
 ```
 
 Remove objects from database:
