@@ -1,4 +1,4 @@
-# typescript-nedb-orm
+# nedb-odm
 
 Object Document Model for [@seald-io/nedb](https://github.com/seald/nedb) written in TypeScript
 
@@ -11,19 +11,19 @@ Object Document Model for [@seald-io/nedb](https://github.com/seald/nedb) writte
 ## How to install
 
 ```bash
-npm install typescript-nedb-odm
+npm install nedb-odm
 ```
 
 or
 
 ```bash
-yarn add typescript-nedb-odm
+yarn add nedb-odm
 ```
 
 or
 
 ```bash
-pnpm add typescript-nedb-odm
+pnpm add nedb-odm
 ```
 
 ## How to use
@@ -32,156 +32,79 @@ Create an objet extending ORM, parametrised with your class fields interface
 
 Example:
 
-```typescript
-import { IID, ORM } from 'typescript-nedb-orm'
-
-interface IPerson extends IID {
-    name: string
-    email: string
-}
-
-class Person extends ORM<IPerson> implements IPerson {
-    name: string
-    email: string
-    constructor(person: IPerson) {
-        super(person)
-        this.name = person.name
-        this.email = person.email
+```javascript
+const { ODM } = require('nedb-odm');
+class User extends ODM {
+    constructor(user){
+        super(user)
+        this.username = user.username
+        this.password = user.password
     }
 }
 ```
 
 Then, you can use it.
 
-Create your object as you would normaly:
+Create an instance of the class to get an object:
 
-```typescript
-const person = new Person({
-    name: 'Luc',
-    email: 'luc@luc.fr'
-})
+```javascript
+const rednexie = new ODM({
+    name: "Rednexie",
+    username: "rednexie",
+    password: "******" 
+});
 ```
 
-Save your object:
+Save the object to the database to make it persistent:
 
-```typescript
-const savedPerson: IPerson = await person.save()
+```javascript
+await rednexie.save()
 ```
 
-Fetch your objects in db:
+Fetch objects from database:
 
-```typescript
-const retrievedPersons: IPerson[] = await Person.find<IPerson>({
-    email: 'luc@luc.fr'
-})
+```javascript
+await User.find({ username: "rednexie" })
 ```
 
-Delete your object:
+Delete the object:
 
-```typescript
-await person.delete()
+```javascript
+await rednexie.delete()
 ```
 
-Update your objects in db:
+Update your objects in database:
 
-```typescript
-const updated: number = await Person.update<IPerson>(
-    {
-        name: 'Luc'
-    },
-    {
-        email: 'luc@new.fr'
-    }
-)
+```javascript
+await rednexie.delete()
 ```
 
-Remove your objects in db:
+Remove objects from database:
 
-```typescript
-const removed: number = await Person.remove<IPerson>({
-    email: 'luc@new.fr'
-})
+```javascript
+await User.remove({ name: "Rednexie" })
 ```
 
-Find one object in db:
+Find one object in database:
 
-```typescript
-const found: IPerson | null = await Person.findOne<IPerson>({
-    name: 'Luc'
-})
+```javascript
+await User.find({ username: "rednexie" })
+// returns: { name: "Rednexie", username: "rednexie", password: "******" })
 ```
 
-Find an object by id in db:
+Find an object by id in database:
 
-```typescript
-const foundById: IPerson | null = await Person.findById<IPerson>('kpOBxczJlr2R5S68')
+```javascript
+await User.findById("kpOBxczJlr2R5S68")
+// returns: { name: "Rednexie", username: "rednexie", password: "******" })
 ```
 
-Count the number of objects in db:
+Count the number of objects in database:
 
-```typescript
-const count: number = await Person.count<IPerson>()
+```javascript
+await User.count()
+// returns: 1
 ```
-
-Have fun! :)
-
-## Project Roadmap
-
-This roadmap outlines the vision I have for the future of TypeScript-NEDB-ORM. It provides insights into my current focus and the improvements I'm planning. While I aim to stick to this roadmap, priorities might shift based on feedback and challenges that arise.
-
-### Planned Features & Improvements
-
-#### 1. **Support for Multiple Classes**
-
-**Issue**: [#2](https://github.com/levg34/typescript-nedb-orm/issues/2)
-
-Description: I'm looking to enhance the ORM to allow usage with multiple classes. This would provide developers with more flexibility to create complex data structures and relationships.
-
-Possible Approaches:
-
--   Using multiple databases (files) and maintaining a map of the databases within the ORM class.
--   Having a single database system with a protected class keyword or other distinguishing parameters.
-
-I'm still considering the best approach to implement this. If you have any feedback or insights, your input would be invaluable. Please share your thoughts on the issue thread.
-
-### Future Considerations
-
--   **Enhanced Documentation**: I plan to add more tutorials, examples (ready to run in StackBlitz), and in-depth guides.
--   **Extended Query Capabilities**: Aiming to provide more tools and flexibility in data retrieval and manipulation.
-
-### Your Input Matters
-
-Feedback and ideas from the community are always welcome. If you have suggestions or want to contribute to a feature on the roadmap, please follow the contribution guidelines or open a new issue for discussion.
-
-## Contributing
-
-Thank you for your interest in contributing to the TypeScript-NEDB-ORM! Contributions are valued and help enhance this project.
-
-### How to Contribute
-
-1. Fork the repository and create your branch from `main`.
-2. Clone the forked repository to your local machine.
-3. Install the required dependencies using `npm install`.
-4. Make your changes, following these coding style guidelines:
-    - No semicolon at the end of lines.
-    - Use single quotes instead of double quotes.
-    - Indent with 4 spaces for TS and JS files, and 2 spaces for JSON or HTML.
-    - You can run `npm run format` to format your code before pushing.
-5. Ensure that the code passes the coverage requirements:
-    - Add tests for the changes made.
-    - Run `npx jest -- --coverage` to check if the code passes the coverage requirements.
-6. Ensure that the code passes the linting requirements:
-    - Run `npm run lint`
-7. Update the documentation (`README.md`) to reflect your changes.
-8. Commit your changes and push them to your forked repository.
-9. Create a pull request to the `main` branch of the original repository.
-
-### Reporting Issues
-
-If you encounter any issues or have suggestions, please [open an issue](https://github.com/levg34/typescript-nedb-orm/issues) on GitHub.
-
-Thank you for your contributions! This project is maintained by one person, and your efforts are greatly appreciated.
-
 ## License
 
-This project is licensed under the [GNU General Public License v3.0 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.en.html) - see the [LICENSE](LICENSE) file for details.
+This project is a fork of [typescript-nedb-orm](https://github.com/levg34/typescript-nedb-orm) which is licensed under the [GNU General Public License v3.0 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.en.html) - see the [LICENSE](LICENSE) file for details.
