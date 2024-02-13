@@ -29,7 +29,7 @@ Create an objet extending ORM, parametrised with your class fields interface
 Example:
 
 ```javascript
-const { ODM } = require('nedb-odm');
+const ODM = require('nedb-odm');
 class User extends ODM {
     constructor(user){
         super(user)
@@ -101,6 +101,17 @@ Count the number of objects in database:
 await User.count()
 // returns: 1
 ```
+
+## Configuration
+
+Store databases in another directory:
+
+```javascript
+ODM.path = "./ODM";
+
+
 ## License
 
 This project is a fork of [typescript-nedb-orm](https://github.com/levg34/typescript-nedb-orm) which is licensed under the [GNU General Public License v3.0 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.en.html) - see the [LICENSE](LICENSE) file for details.
+
+
