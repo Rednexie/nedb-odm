@@ -108,6 +108,8 @@ Store databases in another directory:
 
 ```javascript
 ODM.path = "./ODM";
+```
+
 
 
 ## License
