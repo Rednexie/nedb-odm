@@ -44,8 +44,7 @@ Then, you can use it.
 Create an instance of the class to get an object:
 
 ```javascript
-const rednexie = new ODM({
-    name: "Luc",
+const rednexie = new User({
     username: "rednexie",
     password: "******" 
 });
@@ -72,7 +71,7 @@ await rednexie.delete()
 Update your objects in database:
 
 ```javascript
-await User.update({ name: "Luc" }, { name: "Rednexie" });
+await User.update({ username: "Rednexie" }, { username: "Luc" });
 ```
 
 Remove objects from database:
@@ -85,14 +84,14 @@ Find one object in database:
 
 ```javascript
 await User.find({ username: "rednexie" })
-// returns: { name: "Rednexie", username: "rednexie", password: "******" })
+// returns: { username: "rednexie", password: "******" })
 ```
 
 Find an object by id in database:
 
 ```javascript
 await User.findById("kpOBxczJlr2R5S68")
-// returns: { name: "Rednexie", username: "rednexie", password: "******" })
+// returns: { username: "rednexie", password: "******" })
 ```
 
 Count the number of objects in database:
@@ -103,14 +102,10 @@ await User.count()
 ```
 
 ## Configuration
-
-Store databases in another directory:
-
-```javascript
-ODM.path = "./ODM";
 ```
-
-
+User.setModelName('UserCustom') // makes the data be saved in UserCustom.json
+User.setClassPath('data') // makes the data be saved in the folder 'data'
+```
 
 ## License
 
