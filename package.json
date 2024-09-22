@@ -1,54 +1,33 @@
 {
-  "name": "typescript-nedb-orm",
-  "version": "1.7.0",
-  "description": "ORM for @seald-io/nedb written in TypeScript",
+  "name": "nedb-odm",
+  "version": "0.0.0",
+  "description": "Object Document Model for @seald-io/nedb with JS/TS",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
-  "scripts": {
-    "prepublish": "tsc",
-    "test": "jest",
-    "format": "prettier --write .",
-    "prepare": "husky install",
-    "lint": "eslint src/ --ext .ts"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/levg34/typescript-nedb-orm.git"
+    "url": "git+https://github.com/Rednexie/nedb-odm.git"
   },
   "keywords": [
     "nedb",
     "ORM",
     "typescript",
-    "ODM"
+    "ODM",
+    "nosql",
+    "db",
+    "mongo",
+    "mongoose"
   ],
-  "author": "levg34",
+  "author": "Rednexie",
   "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/levg34/typescript-nedb-orm/issues"
+    "url": "https://github.com/Rednexie/nedb-orm/issues"
   },
-  "homepage": "https://github.com/levg34/typescript-nedb-orm#readme",
-  "devDependencies": {
-    "@types/jest": "^29.2.4",
-    "@types/node": "^18.11.17",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "eslint": "^8.50.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "husky": "^8.0.0",
-    "jest": "^29.3.1",
-    "lint-staged": "^14.0.1",
-    "prettier": "^3.0.3",
-    "ts-jest": "^29.0.3",
-    "typescript": "^4.9.5"
-  },
+  "homepage": "https://github.com/Rednexie/nedb-orm#readme",
   "dependencies": {
     "@seald-io/nedb": "^3.1.0"
-  },
-  "lint-staged": {
-    "*.{ts,js,css,md}": "prettier --write"
   }
 }

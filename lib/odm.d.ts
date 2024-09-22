@@ -5,7 +5,7 @@ export interface IID {
 interface IORM extends IID {
     save(): void;
 }
-export declare class ORM<T extends IID> implements IORM {
+export declare class ODM<T extends IID> implements IORM {
     private static database;
     _id?: string;
     constructor(t: T);
@@ -19,6 +19,7 @@ export declare class ORM<T extends IID> implements IORM {
     static remove<T>(query: Partial<T>, options?: Datastore.RemoveOptions): Promise<number>;
     static findById<T>(id: string, projection?: Partial<T>): Promise<T | null>;
     static count<T>(condition?: Partial<T>): Promise<number>;
+    static create<T>(t: T): Promise<Object>
 }
 export {};
 //# sourceMappingURL=orm.d.ts.map
