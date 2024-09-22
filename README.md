@@ -44,8 +44,7 @@ Then, you can use it.
 Create an instance of the class to get an object:
 
 ```javascript
-const rednexie = new ODM({
-    name: "Luc",
+const rednexie = new User({
     username: "rednexie",
     password: "******" 
 });
