@@ -102,18 +102,10 @@ await User.count()
 ```
 
 ## Configuration
-
-Store databases in another directory:
-
-```javascript
-ODM.path = "./ODM";
 ```
-
-Store database in a custom json file:
-js
-ODM.className = '/UserData';
+User.setModelName('UserCustom') // makes the data be saved in UserCustom.json
+User.setClassPath('data') // makes the data be saved in the folder 'data'
 ```
-
 
 ## License
 
