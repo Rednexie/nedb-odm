@@ -102,7 +102,7 @@ await User.count()
 ```
 
 ## Configuration
-```
+```javascript
 User.setModelName('UserCustom') // makes the data be saved in UserCustom.json
 User.setClassPath('data') // makes the data be saved in the folder 'data'
 ```
