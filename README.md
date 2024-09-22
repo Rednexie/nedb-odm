@@ -71,7 +71,7 @@ await rednexie.delete()
 Update your objects in database:
 
 ```javascript
-await User.update({ name: "Luc" }, { name: "Rednexie" });
+await User.update({ username: "Rednexie" }, { username: "Luc" });
 ```
 
 Remove objects from database:
@@ -84,14 +84,14 @@ Find one object in database:
 
 ```javascript
 await User.find({ username: "rednexie" })
-// returns: { name: "Rednexie", username: "rednexie", password: "******" })
+// returns: { username: "rednexie", password: "******" })
 ```
 
 Find an object by id in database:
 
 ```javascript
 await User.findById("kpOBxczJlr2R5S68")
-// returns: { name: "Rednexie", username: "rednexie", password: "******" })
+// returns: { username: "rednexie", password: "******" })
 ```
 
 Count the number of objects in database:
@@ -109,6 +109,10 @@ Store databases in another directory:
 ODM.path = "./ODM";
 ```
 
+Store database in a custom json file:
+js
+ODM.className = '/UserData';
+```
 
 
 ## License
